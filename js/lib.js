@@ -7,10 +7,9 @@ function httpGet(theUrl){
 }
 function getCommitteeData(){
   committeeData = JSON.parse(httpGet(omunURL+"api/committees.json"));
-  $(".content").append('<ul class="table-view" id="committees">');
   for (var key in committeeData){
     if (key != "structure"){
-      $(".content").append('<li class="table-view-cell media"><a class="navigate-right"><img class="media-object pull-left" src="' + committeeData[key]["image"] + '" height="42" width="42"><div class="media-body">' + committeeData[key]["name"] + '</div></a></li>');
+      $("#committees").append('<li class="table-view-cell media"><a class="navigate-right"><img class="media-object pull-left" src="' + committeeData[key]["image"] + '" height="42" width="42"><div class="media-body">' + committeeData[key]["name"] + '</div></a></li>');
       /*
       <li class="table-view-cell media">
         <a class="navigate-right">
@@ -23,15 +22,13 @@ function getCommitteeData(){
       */
     }
   }
-  $(".content").append('</ul>');
 }
 
 function getNewsData(){
   newsData = JSON.parse(httpGet(omunURL+"api/posts.json"));
-  $(".content").append('<ul class="table-view" id="posts">');
   for (var key in newsData){
     if (key != "structure"){
-      $(".content").append('<li class="table-view-cell media"><a class="navigate-right"><div class="media-body">' + newsData[key]["title"] + ' <p>' + newsData[key]["excerpt"] + '</p></div></a></li>');
+      $("#posts").append('<li class="table-view-cell media"><a class="navigate-right"><div class="media-body">' + newsData[key]["title"] + ' <p>' + newsData[key]["excerpt"] + '</p></div></a></li>');
       /*
       <li class="table-view-cell media">
         <a class="navigate-right">
@@ -44,7 +41,6 @@ function getNewsData(){
       */
     }
   }
-  $(".content").append('</ul>');
 }
 
 var initializers = {
