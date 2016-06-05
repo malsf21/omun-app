@@ -29,7 +29,7 @@ function getCommitteeData(){
 function getNewsData(){
   newsData = JSON.parse(httpGet(omunURL+"api/posts.json"));
   $("#content").append('<ul class="table-view" id="posts">');
-  for (var key in committeeData){
+  for (var key in newsData){
     if (key != "structure"){
       $("#content").append('<li class="table-view-cell media"><a class="navigate-right"><div class="media-body">' + newsData["title"] + ' <p>' + newsData["excerpt"] + '</p></div></a></li>');
       /*
