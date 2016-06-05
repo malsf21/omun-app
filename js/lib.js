@@ -31,7 +31,7 @@ function getNewsData(){
   $(".content").append('<ul class="table-view" id="posts">');
   for (var key in newsData){
     if (key != "structure"){
-      $(".content").append('<li class="table-view-cell media"><a class="navigate-right"><div class="media-body">' + newsData["title"] + ' <p>' + newsData["excerpt"] + '</p></div></a></li>');
+      $(".content").append('<li class="table-view-cell media"><a class="navigate-right"><div class="media-body">' + newsData[key]["title"] + ' <p>' + newsData[key]["excerpt"] + '</p></div></a></li>');
       /*
       <li class="table-view-cell media">
         <a class="navigate-right">
