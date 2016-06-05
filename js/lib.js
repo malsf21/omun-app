@@ -1,3 +1,4 @@
+var omunURL = "http://matthewwang.me/omun/";
 function httpGet(theUrl){
   var xmlHttp = new XMLHttpRequest();
   xmlHttp.open( "GET", theUrl, false );
@@ -5,10 +6,11 @@ function httpGet(theUrl){
   return xmlHttp.responseText;
 }
 function getCommitteeData(){
-  var committeeData = JSON.parse(httpGet("http://matthewwang.me/omun/api/committees.json"));
+  committeeData = JSON.parse(httpGet(omunURL+"api/committees.json"));
+  $("#content").append('<ul class="table-view" id="committees">');
   for (var key in committeeData){
     if (key != "structure"){
-      $("#committees").append('<li class="table-view-cell media"><a class="navigate-right"><img class="media-object pull-left" src="' + committeeData[key]["image"] + '" height="42" width="42"><div class="media-body">' + committeeData[key]["name"] + '</div></a></li>');
+      $("#content").append('<li class="table-view-cell media"><a class="navigate-right"><img class="media-object pull-left" src="' + committeeData[key]["image"] + '" height="42" width="42"><div class="media-body">' + committeeData[key]["name"] + '</div></a></li>');
       /*
       <li class="table-view-cell media">
         <a class="navigate-right">
@@ -21,12 +23,38 @@ function getCommitteeData(){
       */
     }
   }
+  $("#content").append('</ul>');
+}
+
+function getNewsData(){
+  newsData = JSON.parse(httpGet(omunURL+"api/posts.json"));
+  $("#content").append('<ul class="table-view" id="posts">');
+  for (var key in committeeData){
+    if (key != "structure"){
+      $("#content").append('<li class="table-view-cell media"><a class="navigate-right"><div class="media-body">' + newsData["title"] + ' <p>' + newsData["excerpt"] + '</p></div></a></li>');
+      /*
+      <li class="table-view-cell media">
+        <a class="navigate-right">
+          <div class="media-body">
+            ' + newsData["title"] + '
+            <p>' + newsData["excerpt"] + '</p>
+          </div>
+        </a>
+      </li>
+      */
+    }
+  }
+  $("#content").append('</ul>');
 }
 
 var initializers = {
     'Committees': function() {
-        getCommitteeData();
+      getCommitteeData();
+    },
+    'News': function(){
+      getNewsData();
     }
+
 };
 
 function initializePage(title) {
