@@ -32,12 +32,12 @@ function getCommitteeData(){
           <a class="icon icon-close pull-right" href="#' + committeeData[key]["short"] + 'modal" class="modal" style="color:white;"></a>
         </header>
         <div class="content">
-          <p class="content-padded">
+          <div class="content-padded">
             <h1>' + committeeData[key]["name"] + '</h1>
             <h3>' + committeeData[key]["type"] + '</h3>
             <div id="' + committeeData[key]["short"] + 'data">
             </div>
-          </p>
+          </div>
         </div>
       </div>
       */
