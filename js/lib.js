@@ -54,10 +54,10 @@ function getNewsData(){
   newsData = JSON.parse(httpGet(omunURL+"api/posts.json"));
   for (var key in newsData){
     if (key != "structure"){
-      $("#posts").append('<li class="table-view-cell media"><a class="navigate-right"><div class="media-body">' + newsData[key]["title"] + ' <p>' + newsData[key]["excerpt"] + '</p></div></a></li>');
+      $("#posts").append('<li class="table-view-cell media"><a href="#' + newsData[key]["short"] + 'modal"><div class="media-body">' + newsData[key]["title"] + ' <p>' + newsData[key]["excerpt"] + '</p></div></a></li>');
       /*
       <li class="table-view-cell media">
-        <a class="navigate-right">
+        <a href="#' + newsData[key]["short"] + 'modal">
           <div class="media-body">
             ' + newsData["title"] + '
             <p>' + newsData["excerpt"] + '</p>
@@ -65,6 +65,28 @@ function getNewsData(){
         </a>
       </li>
       */
+    }
+  }
+  for (var key in newsData){
+    if (key != "structure"){
+      $("#content").append('<div id="' + newsData[key]["short"] + 'modal" class="modal"><header class="bar bar-nav bar-nav-blue"><a class="icon icon-close pull-right" href="#' + newsData[key]["short"] + 'modal" class="modal" style="color:white;"></a></header><div class="content"><div class="content-padded"><h3>' + newsData[key]["name"] + '</h3><h5>by ' + newsData[key]["author"] + '</h5><div id="' + newsData[key]["short"] + 'data"></div><p>You can find more information about the conference on our website.</p></div></div></div>')
+      /*
+      <div id="' + newsData[key]["short"] + 'modal" class="modal">
+        <header class="bar bar-nav bar-nav-blue">
+          <a class="icon icon-close pull-right" href="#' + newsData[key]["short"] + 'modal" class="modal" style="color:white;"></a>
+        </header>
+        <div class="content">
+          <div class="content-padded">
+            <h3>' + newsData[key]["name"] + '</h3>
+            <h5>by ' + newsData[key]["author"] + '</h5>
+            <div id="' + newsData[key]["short"] + 'data">
+            </div>
+            <p>You can find more information about the conference on our website.</p>
+          </div>
+        </div>
+      </div>
+      */
+      $("#"+ newsData[key]['short'] + "data").load(newsData[key]["permalink"] + " #content");
     }
   }
 }
