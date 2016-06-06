@@ -32,7 +32,7 @@ function getCommitteeData(){
         </div>
       </div>
       */
-      $("#"+ committeeData[key]['short'] + "content").load(committeeData[key]["permalink"]);
+      $("#"+ committeeData[key]['short'] + "content").load('committeeData[key]["permalink"] #content');
     }
   }
 }
