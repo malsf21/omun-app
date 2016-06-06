@@ -8,3 +8,8 @@
 .bar-nav-blue .a{
   color:white;
 }
+
+img.center {
+    display: block;
+    margin: 0 auto;
+}
