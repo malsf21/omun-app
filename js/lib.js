@@ -23,15 +23,17 @@ function getCommitteeData(){
     }
   }
   for (var key in committeeData){
-    $("#content").append('<div id="' + committeeData[key]["short"] + 'modal" class="modal"><div class="content"><p class="content-padded" id="' + committeeData[key]["short"] + 'content"></p></div></div>');
-    /*
-    <div id="' + committeeData[key]["short"] + 'modal" class="modal">
-      <div class="content">
-        <p class="content-padded" id="' + committeeData[key]["short"] + 'content"></p>
+    if (key != "structure"){
+      $("#content").append('<div id="' + committeeData[key]["short"] + 'modal" class="modal"><div class="content"><p class="content-padded" id="' + committeeData[key]["short"] + 'content"></p></div></div>');
+      /*
+      <div id="' + committeeData[key]["short"] + 'modal" class="modal">
+        <div class="content">
+          <p class="content-padded" id="' + committeeData[key]["short"] + 'content"></p>
+        </div>
       </div>
-    </div>
-    */
-    $("#"+ committeeData[key]['short'] + "content").load(committeeData[key]["permalink"]);
+      */
+      $("#"+ committeeData[key]['short'] + "content").load(committeeData[key]["permalink"]);
+    }
   }
 }
 
