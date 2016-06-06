@@ -45,7 +45,7 @@ function getCommitteeData(){
       </div>
       */
       $("#"+ committeeData[key]['short'] + "data").load(committeeData[key]["permalink"] + " #content");
-      $("#"+ committeeData[key]['short'] + "data").append("<p>You can find more information about this committee, including the background guide, on our website.");
+      $("#content").append("<p>You can find more information about this committee, including the background guide, on our website.");
     }
   }
 }
