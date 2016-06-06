@@ -24,7 +24,7 @@ function getCommitteeData(){
   }
   for (var key in committeeData){
     if (key != "structure"){
-      $("#content").append('<div id="' + committeeData[key]["short"] + 'modal" class="modal"><header class="bar bar-nav bar-nav-blue"><h1 class="title">'+ committeeData[key]["short"] + '</h1><a class="icon icon-close pull-right" href="#' + committeeData[key]["short"] + 'modal" class="modal"style="color:white;"></a></header><div class="content"><div><img class="center" src="'+ committeeData[key][image] +'" width="128" height="128"></img></div><div class="content-padded"><h3>' + committeeData[key]["name"] + '</h3><h5>' + committeeData[key]["type"] + '</h5><div id="' + committeeData[key]["short"] + 'data"></div></div></div></div>');
+      $("#content").append('<div id="' + committeeData[key]["short"] + 'modal" class="modal"><header class="bar bar-nav bar-nav-blue"><h1 class="title">'+ committeeData[key]["short"] + '</h1><a class="icon icon-close pull-right" href="#' + committeeData[key]["short"] + 'modal" class="modal"style="color:white;"></a></header><div class="content"><div><img class="center" src="'+ committeeData[key]["image"] +'" width="128" height="128"></img></div><div class="content-padded"><h3>' + committeeData[key]["name"] + '</h3><h5>' + committeeData[key]["type"] + '</h5><div id="' + committeeData[key]["short"] + 'data"></div></div></div></div>');
       /*
       <div id="' + committeeData[key]["short"] + 'modal" class="modal">
         <header class="bar bar-nav bar-nav-blue">
@@ -33,7 +33,7 @@ function getCommitteeData(){
         </header>
         <div class="content">
           <div>
-            <img class="center" src="'+ committeeData[key][image]' +" width="128" height="128"></img>
+            <img class="center" src="'+ committeeData[key]["image"]' +" width="128" height="128"></img>
           </div>
           <div class="content-padded">
             <h3>' + committeeData[key]["name"] + '</h3>
