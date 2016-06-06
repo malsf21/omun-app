@@ -24,19 +24,24 @@ function getCommitteeData(){
   }
   for (var key in committeeData){
     if (key != "structure"){
-      $("#content").append('<div id="' + committeeData[key]["short"] + 'modal" class="modal"><header class="bar bar-nav bar-nav-blue"><h1 class="title">'+ committeeData[key]["short"] + '</h1><a class="icon icon-close pull-right" href="#' + committeeData[key]["short"] + 'modal" class="modal"style="color:white;"></a></header><div class="content"><p class="content-padded" id="' + committeeData[key]["short"] + 'content"></p></div></div>');
+      $("#content").append('<div id="' + committeeData[key]["short"] + 'modal" class="modal"><header class="bar bar-nav bar-nav-blue"><h1 class="title">'+ committeeData[key]["short"] + '</h1><a class="icon icon-close pull-right" href="#' + committeeData[key]["short"] + 'modal" class="modal"style="color:white;"></a></header><div class="content"><p class="content-padded"><h1>' + committeeData[key]["name"] + '</h1><h3>' + committeeData[key]["type"] + '</h3><div id="' + committeeData[key]["short"] + 'data"></div></p></div></div>');
       /*
       <div id="' + committeeData[key]["short"] + 'modal" class="modal">
-      <header class="bar bar-nav bar-nav-blue">
-        <h1 class="title">'+ committeeData[key]["short"] + '</h1>
-        <a class="icon icon-close pull-right" href="#' + committeeData[key]["short"] + 'modal" class="modal" style="color:white;"></a>
-      </header>
-      <div class="content">
-        <p class="content-padded" id="' + committeeData[key]["short"] + 'content"></p>
-      </div>
+        <header class="bar bar-nav bar-nav-blue">
+          <h1 class="title">'+ committeeData[key]["short"] + '</h1>
+          <a class="icon icon-close pull-right" href="#' + committeeData[key]["short"] + 'modal" class="modal" style="color:white;"></a>
+        </header>
+        <div class="content">
+          <p class="content-padded">
+            <h1>' + committeeData[key]["name"] + '</h1>
+            <h3>' + committeeData[key]["type"] + '</h3>
+            <div id="' + committeeData[key]["short"] + 'data">
+            </div>
+          </p>
+        </div>
       </div>
       */
-      $("#"+ committeeData[key]['short'] + "content").load(committeeData[key]["permalink"] + " #content");
+      $("#"+ committeeData[key]['short'] + "data").load(committeeData[key]["permalink"] + " #content");
     }
   }
 }
