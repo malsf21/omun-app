@@ -28,6 +28,10 @@ function getCommitteeData(){
       /*
       <div id="' + committeeData[key]["short"] + 'modal" class="modal">
         <div class="content">
+          <header class="bar bar-nav bar-nav-blue">
+            <h1 class="title">'+ committeeData[key]["short"] + '</h1>
+            <a class="icon icon-close pull-right" href="#' + committeeData[key]["short"] + 'modal" class="modal" style="color:white;"></a>
+          </header>
           <p class="content-padded" id="' + committeeData[key]["short"] + 'content"></p>
         </div>
       </div>
