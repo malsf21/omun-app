@@ -24,7 +24,7 @@ function getCommitteeData(){
   }
   for (var key in committeeData){
     if (key != "structure"){
-      $("#content").append('<div id="' + committeeData[key]["short"] + 'modal" class="modal"><header class="bar bar-nav bar-nav-blue"><h1 class="title">'+ committeeData[key]["short"] + '</h1><a class="icon icon-close pull-right" href="#' + committeeData[key]["short"] + 'modal" class="modal"style="color:white;"></a></header><div class="content"><div><img class="center" src="'+ committeeData[key]["image"] +'" width="128" height="128" style="padding-top:10px;"></img></div><div class="content-padded"><h3>' + committeeData[key]["name"] + '</h3><h5>' + committeeData[key]["type"] + '</h5><div id="' + committeeData[key]["short"] + 'data"></div><p>You can find more information about this committee, including the background guide, on our website.</p></div></div></div>');
+      $("#content").append('<div id="' + committeeData[key]["short"] + 'modal" class="modal"><header class="bar bar-nav bar-nav-blue"><h1 class="title">'+ committeeData[key]["short"] + '</h1><a class="icon icon-close pull-right" href="#' + committeeData[key]["short"] + 'modal" class="modal"style="color:white;"></a></header><div class="content"><div><img class="center" src="'+ committeeData[key]["image"] +'" width="128" height="128" style="padding-top:10px;"></img></div><div class="content-padded"><h3>' + committeeData[key]["name"] + '</h3><h5>' + committeeData[key]["type"] + '</h5><div id="' + committeeData[key]["short"] + 'data" class="import-data"></div><p>You can find more information about this committee, including the background guide, on our website.</p></div></div></div>');
       /*
       <div id="' + committeeData[key]["short"] + 'modal" class="modal">
         <header class="bar bar-nav bar-nav-blue">
@@ -38,7 +38,7 @@ function getCommitteeData(){
           <div class="content-padded">
             <h3>' + committeeData[key]["name"] + '</h3>
             <h5>' + committeeData[key]["type"] + '</h5>
-            <div id="' + committeeData[key]["short"] + 'data">
+            <div id="' + committeeData[key]["short"] + 'data" class="import-data">
             </div>
             <p>You can find more information about this committee, including the background guide, on our website.</p>
           </div>
@@ -46,6 +46,9 @@ function getCommitteeData(){
       </div>
       */
       $("#"+ committeeData[key]['short'] + "data").load(committeeData[key]["permalink"] + " #content");
+      $("#"+ committeeData[key]['short'] + "data").bind('click', function(e){
+        e.preventDefault();
+      });
     }
   }
 }
@@ -69,7 +72,7 @@ function getNewsData(){
   }
   for (var key in newsData){
     if (key != "structure"){
-      $("#content").append('<div id="' + newsData[key]["short"] + 'modal" class="modal"><header class="bar bar-nav bar-nav-blue"><a class="icon icon-close pull-right" href="#' + newsData[key]["short"] + 'modal" class="modal" style="color:white;"></a></header><div class="content"><div class="content-padded"><h3>' + newsData[key]["name"] + '</h3><h5>by ' + newsData[key]["author"] + '</h5><div id="' + newsData[key]["short"] + 'data"></div><p>You can find more information about the conference on our website.</p></div></div></div>');
+      $("#content").append('<div id="' + newsData[key]["short"] + 'modal" class="modal"><header class="bar bar-nav bar-nav-blue"><a class="icon icon-close pull-right" href="#' + newsData[key]["short"] + 'modal" class="modal" style="color:white;"></a></header><div class="content"><div class="content-padded"><h3>' + newsData[key]["title"] + '</h3><h5>by ' + newsData[key]["author"] + '</h5><div id="' + newsData[key]["short"] + 'data" class="import-data"></div><p>You can find more information about the conference on our website.</p></div></div></div>');
       /*
       <div id="' + newsData[key]["short"] + 'modal" class="modal">
         <header class="bar bar-nav bar-nav-blue">
@@ -77,9 +80,9 @@ function getNewsData(){
         </header>
         <div class="content">
           <div class="content-padded">
-            <h3>' + newsData[key]["name"] + '</h3>
+            <h3>' + newsData[key]["title"] + '</h3>
             <h5>by ' + newsData[key]["author"] + '</h5>
-            <div id="' + newsData[key]["short"] + 'data">
+            <div id="' + newsData[key]["short"] + 'data" class="import-data">
             </div>
             <p>You can find more information about the conference on our website.</p>
           </div>
@@ -87,6 +90,9 @@ function getNewsData(){
       </div>
       */
       $("#"+ newsData[key]['short'] + "data").load(newsData[key]["permalink"] + " #content");
+      $("#"+ newsData[key]['short'] + "data").bind('click', function(e){
+        e.preventDefault();
+      });
     }
   }
 }

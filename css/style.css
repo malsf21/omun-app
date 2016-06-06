@@ -13,3 +13,8 @@ img.center {
     display: block;
     margin: 0 auto;
 }
+
+.import-data ul{
+  margin-left: 0;
+  list-style: none;
+}
