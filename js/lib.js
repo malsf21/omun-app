@@ -24,7 +24,7 @@ function getCommitteeData(){
   }
   for (var key in committeeData){
     if (key != "structure"){
-      $("#content").append('<div id="' + committeeData[key]["short"] + 'modal" class="modal"><header class="bar bar-nav bar-nav-blue"><h1 class="title">'+ committeeData[key]["short"] + '</h1><a class="icon icon-close pull-right" href="#' + committeeData[key]["short"] + 'modal" class="modal"style="color:white;"></a></header><div class="content"><div><img class="center" src="'+ committeeData[key]["image"] +'" width="128" height="128" style="padding-top:10px;"></img></div><div class="content-padded"><h3>' + committeeData[key]["name"] + '</h3><h5>' + committeeData[key]["type"] + '</h5><div id="' + committeeData[key]["short"] + 'data"></div></div></div></div>');
+      $("#content").append('<div id="' + committeeData[key]["short"] + 'modal" class="modal"><header class="bar bar-nav bar-nav-blue"><h1 class="title">'+ committeeData[key]["short"] + '</h1><a class="icon icon-close pull-right" href="#' + committeeData[key]["short"] + 'modal" class="modal"style="color:white;"></a></header><div class="content"><div><img class="center" src="'+ committeeData[key]["image"] +'" width="128" height="128" style="padding-top:10px;"></img></div><div class="content-padded"><h3>' + committeeData[key]["name"] + '</h3><h5>' + committeeData[key]["type"] + '</h5><div id="' + committeeData[key]["short"] + 'data"></div><p>You can find more information about this committee, including the background guide, on our website.</p></div></div></div>');
       /*
       <div id="' + committeeData[key]["short"] + 'modal" class="modal">
         <header class="bar bar-nav bar-nav-blue">
@@ -40,12 +40,12 @@ function getCommitteeData(){
             <h5>' + committeeData[key]["type"] + '</h5>
             <div id="' + committeeData[key]["short"] + 'data">
             </div>
+            <p>You can find more information about this committee, including the background guide, on our website.</p>
           </div>
         </div>
       </div>
       */
       $("#"+ committeeData[key]['short'] + "data").load(committeeData[key]["permalink"] + " #content");
-      $("#content").append("<p>You can find more information about this committee, including the background guide, on our website.");
     }
   }
 }
