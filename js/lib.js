@@ -23,7 +23,7 @@ function getCommitteeData(){
     }
   }
   for (var key in committeeData){
-    $("#committees").append("<div id="' + committeeData[key]["short"] + 'modal" class="modal"><div class="content"><p class="content-padded" id="' + committeeData[key]["short"] + 'content"></p></div></div>");
+    $("#committees").append('<div id="' + committeeData[key]["short"] + 'modal" class="modal"><div class="content"><p class="content-padded" id="' + committeeData[key]["short"] + 'content"></p></div></div>');
     /*
     <div id="' + committeeData[key]["short"] + 'modal" class="modal">
       <div class="content">
