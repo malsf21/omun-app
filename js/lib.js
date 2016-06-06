@@ -9,10 +9,10 @@ function getCommitteeData(){
   committeeData = JSON.parse(httpGet(omunURL+"api/committees.json"));
   for (var key in committeeData){
     if (key != "structure"){
-      $("#committees").append('<li class="table-view-cell media"><a class="navigate-right"><img class="media-object pull-left" src="' + committeeData[key]["image"] + '" height="42" width="42"><div class="media-body">' + committeeData[key]["name"] + '</div></a></li>');
+      $("#committees").append('<li class="table-view-cell media"><a class="navigate-right" href="#' + committeeData[key]["short"] + 'modal"><img class="media-object pull-left" src="' + committeeData[key]["image"] + '" height="42" width="42"><div class="media-body">' + committeeData[key]["name"] + '</div></a></li>');
       /*
       <li class="table-view-cell media">
-        <a class="navigate-right">
+        <a class="navigate-right" href="#' + committeeData[key]["short"] + 'modal">
           <img class="media-object pull-left" src="' + committeeData[key]["image"] + '" height="42" width="42">
           <div class="media-body">
             ' + committeeData[key]["name"] + '
@@ -21,6 +21,17 @@ function getCommitteeData(){
       </li>
       */
     }
+  }
+  for (var key in committeeData){
+    $("#committees").append("<div id="' + committeeData[key]["short"] + 'modal" class="modal"><div class="content"><p class="content-padded" id="' + committeeData[key]["short"] + 'content"></p></div></div>");
+    /*
+    <div id="' + committeeData[key]["short"] + 'modal" class="modal">
+      <div class="content">
+        <p class="content-padded" id="' + committeeData[key]["short"] + 'content"></p>
+      </div>
+    </div>
+    */
+    $("#"+ committeeData[key]['short'] + "content").load(committeeData[key]["permalink"]);
   }
 }
 
