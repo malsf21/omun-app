@@ -46,9 +46,6 @@ function getCommitteeData(){
       </div>
       */
       $("#"+ committeeData[key]['short'] + "data").load(committeeData[key]["permalink"] + " #content");
-      $("#"+ committeeData[key]['short'] + "data").bind('click', function(e){
-        e.preventDefault();
-      });
     }
   }
 }
@@ -90,9 +87,6 @@ function getNewsData(){
       </div>
       */
       $("#"+ newsData[key]['short'] + "data").load(newsData[key]["permalink"] + " #content");
-      $("#"+ newsData[key]['short'] + "data").bind('click', function(e){
-        e.preventDefault();
-      });
     }
   }
 }
@@ -117,4 +111,8 @@ jQuery(document).ready(function($) {
         initializePage(e.detail.state.title);
     });
     initializePage('{{ page.title }}');
+    $(".import-data a").on("click", function(event){
+      event.preventDefault();
+    });
+
 });
