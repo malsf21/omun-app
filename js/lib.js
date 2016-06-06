@@ -69,7 +69,7 @@ function getNewsData(){
   }
   for (var key in newsData){
     if (key != "structure"){
-      $("#content").append('<div id="' + newsData[key]["short"] + 'modal" class="modal"><header class="bar bar-nav bar-nav-blue"><a class="icon icon-close pull-right" href="#' + newsData[key]["short"] + 'modal" class="modal" style="color:white;"></a></header><div class="content"><div class="content-padded"><h3>' + newsData[key]["name"] + '</h3><h5>by ' + newsData[key]["author"] + '</h5><div id="' + newsData[key]["short"] + 'data"></div><p>You can find more information about the conference on our website.</p></div></div></div>')
+      $("#content").append('<div id="' + newsData[key]["short"] + 'modal" class="modal"><header class="bar bar-nav bar-nav-blue"><a class="icon icon-close pull-right" href="#' + newsData[key]["short"] + 'modal" class="modal" style="color:white;"></a></header><div class="content"><div class="content-padded"><h3>' + newsData[key]["name"] + '</h3><h5>by ' + newsData[key]["author"] + '</h5><div id="' + newsData[key]["short"] + 'data"></div><p>You can find more information about the conference on our website.</p></div></div></div>');
       /*
       <div id="' + newsData[key]["short"] + 'modal" class="modal">
         <header class="bar bar-nav bar-nav-blue">
