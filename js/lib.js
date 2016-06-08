@@ -137,8 +137,4 @@ jQuery(document).ready(function($) {
         initializePage(e.detail.state.title);
     });
     initializePage('{{ page.title }}');
-    $(".import-data a").on("click", function(event){
-      event.preventDefault();
-    });
-
 });
