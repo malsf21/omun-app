@@ -42,9 +42,13 @@
     </nav>
 
     <div class="content">
+      <h4 class="content-padded" style="text-align:center;"><span id="countdown"></span></h4>
       <div class="card">
         <div class="segmented-control">
-          <a class="control-item active" href="#day1">
+          <a class="control-item active" href="#preconf">
+            Pre-Conference
+          </a>
+          <a class="control-item" href="#day1">
             April 22nd
           </a>
           <a class="control-item" href="#day2">
@@ -53,7 +57,23 @@
         </div>
       </div>
       <div class="card">
-        <div id="day1" class="control-content active">
+        <div id="preconf" class="control-content active">
+          <ul class="table-view">
+            <li class="table-view-divider">2016</li>
+            <li class="table-view-cell">09/42 | Committee List Released</li>
+            <li class="table-view-cell">10/42 | Early Bird Registration Opens</li>
+            <li class="table-view-cell">11/42 | Early Bird Committee Assignments</li>
+            <li class="table-view-divider">2017</li>
+            <li class="table-view-cell">01/12 | Registration Opens</li>
+            <li class="table-view-cell">01/42 | Committee Assignments 1</li>
+            <li class="table-view-cell">02/12 | Position Papers Released</li>
+            <li class="table-view-cell">01/42 | Committee Assignments 2</li>
+            <li class="table-view-cell">01/42 | Committee Assignments 3</li>
+            <li class="table-view-cell">04/12 | Registration Closes</li>
+            <li class="table-view-cell">04/22 | Conference Starts</li>
+          </ul>
+        </div>
+        <div id="day1" class="control-content">
           <ul class="table-view">
             <li class="table-view-cell">08:30 - 09:30 | Registration</li>
             <li class="table-view-divider">09:30 - 09:45 | Break</li>
@@ -76,5 +96,10 @@
         </div>
       </div>
     </div>
+    <script>
+      window.setInterval(function(){
+        $("#countdown").html(getTimeRemaining(omunDate));
+      }, 1000);
+    </script>
   </body>
 </html>
