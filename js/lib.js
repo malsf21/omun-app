@@ -1,10 +1,31 @@
-var omunURL = "http://matthewwang.me/omun/";
+var omunURL = "http://matthewwang.me/omun/"; // website to pull api information from and/or direct users
+var omunDate = "4/22/2017"; //Countdown date in MM/DD/YYYY format (no 0's required)
+// Utilities
 function httpGet(theUrl){
   var xmlHttp = new XMLHttpRequest();
   xmlHttp.open( "GET", theUrl, false );
   xmlHttp.send( null );
   return xmlHttp.responseText;
 }
+function getTimeRemaining(endtime){
+	var t = Date.parse(endtime) - Date.parse(new Date());
+	var seconds = Math.floor( (t/1000) % 60 );
+	var minutes = Math.floor( (t/1000/60) % 60 );
+	var hours = Math.floor( (t/(1000*60*60)) % 24 );
+	var days = Math.floor( t/(1000*60*60*24) );
+
+	if (t >= 0){
+    return "OMUN is only " + days + " days away!"
+		//return days + " d " + hours + ":" + minutes + ":" + seconds  + " until OMUN";
+	}
+  else if (t < 0){
+    return "OMUN 2017 has officially started!";
+  }
+	else {
+		return "Oops! Something's not working!";
+	}
+}
+// Data Fetchers
 function getCommitteeData(){
   committeeData = JSON.parse(httpGet(omunURL+"api/committees.json"));
   for (var key in committeeData){
@@ -92,6 +113,11 @@ function getNewsData(){
 }
 
 var initializers = {
+    'Home': function(){
+      window.setInterval(function(){
+        $("#countdown").html(getTimeRemaining(omunDate));
+      }, 1000);
+    },
     'Committees': function() {
       getCommitteeData();
     },
