@@ -15,7 +15,7 @@ function getTimeRemaining(endtime){
 	var days = Math.floor( t/(1000*60*60*24) );
 
 	if (t >= 0){
-    return "OMUN is only " + days + " days away!"
+    return days + " days until OMUN";
 		//return days + " d " + hours + ":" + minutes + ":" + seconds  + " until OMUN";
 	}
   else if (t < 0){
@@ -113,7 +113,7 @@ function getNewsData(){
 }
 
 var initializers = {
-    'Home': function(){
+    'Schedule': function(){
       window.setInterval(function(){
         $("#countdown").html(getTimeRemaining(omunDate));
       }, 1000);
