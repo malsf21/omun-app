@@ -1,6 +1,10 @@
 # omun-app
 The OMUN App. Still in Alpha.
 
+## NOTICE:
+
+I'm switching over to Ionic. Watch my progress in the `ionic-convert` branch.
+
 ## A few notes/thoughts
 
 ### Build and Compile
