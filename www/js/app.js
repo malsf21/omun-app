@@ -24,7 +24,7 @@ angular.module('omun', ['ionic', 'omun.controllers', 'omun.services'])
         return "templates/tabs-android.html";
       }
       else{
-        return "templates/home.html";
+        return "templates/tabs.html";
       }
     }
   })
