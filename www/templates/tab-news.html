@@ -1,0 +1,11 @@
+<ion-view view-title="News">
+  <ion-content>
+    <ion-list>
+      <ion-item class="item-icon-right" ng-repeat="article in news" type="item-text-wrap" href="#/tab/news/{{article.short}}">
+        <h2>{{article.title}}</h2>
+        <p>{{article.author}}</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
