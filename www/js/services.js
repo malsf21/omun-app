@@ -1,14 +1,6 @@
-var omunURL = "http://matthewwang.me/omun/";
-function httpGet(theUrl){
-  var xmlHttp = new XMLHttpRequest();
-  xmlHttp.open( "GET", theUrl, false );
-  xmlHttp.send( null );
-  return xmlHttp.responseText;
-}
 angular.module('omun.services', [])
 
 .factory('News', function() {
-  console.log(httpGet(omunURL+"api/posts.json"));
   var news = [{
     "title": "Incoming OMUN 2017 Secretariat/Directors",
     "author": "Matthew Wang",
