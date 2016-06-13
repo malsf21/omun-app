@@ -21,6 +21,7 @@ If you see any issues, please let me know on my Issue Tracker!
 * Actual countdown until OMUN 2017
 * Actual content of posts
 * More descriptive content in general
+* Have Documentation on testing, coding, building, deploying, and maintaining
 * Have better coding practices
 
 ## Things This App Will Not Do (For the Foreseeable Future)
