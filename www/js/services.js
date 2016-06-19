@@ -1,38 +1,36 @@
 angular.module('omun.services', [])
 
-.factory('News', function() {
-  var news = [{
-    "title": "Incoming OMUN 2017 Secretariat/Directors",
-    "author": "Matthew Wang",
-    "date": "2016-05-30",
-    "short": "Introducing-Secretariat",
-    "tags": "general",
-    "excerpt": "Hey guys! Just a quick update, but we've announced our Secretariat and Directors for OMUN 2017. They're dedicated to making OMUN the awesome, completely student-run Model UN simulation it was last year, but also to make the experience better for...",
-    "permalink" : "http://matthewwang.me/omun/2016/05/30/welcome-omun-staff.html"
-  },
-  {
-    "title": "Welcome to the OMUN Website!",
-    "author": "Matthew Wang",
-    "date": "2016-05-26",
-    "short": "Welcome-To-Website",
-    "tags": "site",
-    "excerpt": "Welcome to the OMUN website! Here you'll find information about Ontario Model United Nations, a Model United Nations simulation held at Upper Canada College. You'll learn more about the committees available, general conference information, and about the OMUN staff that...",
-    "permalink" : "http://matthewwang.me/omun/2016/05/26/welcome-to-the-omun-website.html"
-  }];
-
+.factory('News', ['$http',function($http) {
+  var omunURL = "http://matthewwang.me/omun/";
+  var getData = function() {
+    return $http({method:"GET", url:omunURL + 'api/posts.json'}).then(function(result){
+      return result.data;
+    });
+  };
   return {
     all: function() {
-      return news;
+      var news = getData();
+      return news.then(function(result) {
+        return result.data;
+      });
     },
     get: function(short) {
-      for (i = 0; i < news.length; i++) {
-        if (news[i].short == short){
-          return news[i];
+      var news = getData();
+      return news.then(function(result) {
+        console.log("Merp");
+        console.log(result["data"]);
+        for (i = 0; i < result["data"].length; i++) {
+          if (result["data"][i]["short"] == short){
+            console.log("Flerp");
+            console.log(i);
+            console.log(result["data"][i]);
+            return result["data"][i];
+          }
         }
-      }
+      });
     }
   };
-})
+}])
 
 .factory('Committees', function() {
   var committees = [{
