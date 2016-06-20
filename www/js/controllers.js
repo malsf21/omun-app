@@ -19,11 +19,17 @@ angular.module('omun.controllers', [])
 .controller('ScheduleCtrl', function($scope) {})
 
 .controller('CommitteesCtrl', function($scope, Committees) {
-  $scope.committees = Committees.all();
+  var committees = Committees.all();
+  committees.then(function(result) {
+     $scope.committees = result;
+  });
 })
 
 .controller('CommitteeInfoCtrl', function($scope, $stateParams, Committees) {
-  $scope.committee = Committees.get($stateParams.short);
+  var committees = Committees.get($stateParams.short);
+  committees.then(function(result) {
+     $scope.committee = result;
+  });
 })
 
 .controller('AboutCtrl', function($scope) {
