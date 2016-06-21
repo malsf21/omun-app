@@ -1,7 +1,8 @@
 <ion-view view-title="Committees">
   <ion-content>
     <ion-list>
-      <ion-item class="item-icon-right" ng-repeat="committee in committees" type="item-text-wrap" href="#/tab/committees/{{committee.short}}">
+      <ion-item class="item-icon-right item-avatar" ng-repeat="committee in committees" type="item-text-wrap" href="#/tab/committees/{{committee.short}}">
+        <img src="{{committee.image}}">
         <h2>{{committee.name}}</h2>
         <p>{{committee.short}} | {{committee.type}}</p>
         <i class="icon ion-chevron-right icon-accessory"></i>

@@ -17,13 +17,17 @@ angular.module('omun.services', [])
     get: function(short) {
       var news = getData();
       return news.then(function(result) {
-        console.log("Merp");
-        console.log(result["data"]);
         for (i = 0; i < result["data"].length; i++) {
           if (result["data"][i]["short"] == short){
             return result["data"][i];
           }
         }
+      });
+    },
+    latest: function() {
+      var news = getData();
+      return news.then(function(result) {
+        return result["data"][0];
       });
     }
   };
@@ -51,6 +55,12 @@ angular.module('omun.services', [])
             return result["data"][i];
           }
         }
+      });
+    },
+    random: function() {
+      var committees = getData();
+      return committees.then(function(result) {
+        return result["data"][Math.floor(Math.random()*(result["data"].length-1))];
       });
     }
   };
