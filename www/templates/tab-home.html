@@ -27,10 +27,13 @@
     </div>
     <div class="list card">
       <div class="item item-divider">
-        Latest News
+        Latest News Update
       </div>
       <div class="item item-text-wrap">
         <h2>{{news.title}}</h2>
+        <p>by {{news.author}}</p>
+      </div>
+      <div class="item item-body">
         {{news.excerpt}}
       </div>
     </div>
@@ -49,7 +52,7 @@
           {{committee.shortbio}}
         </p>
       </div>
-      <a href="/#/tab/committees" class="item">
+      <a href="#/tab/committees" class="item">
         <p>
           <span class="subdued">Learn About OMUN's Committees</span>
         </p>
