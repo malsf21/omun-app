@@ -1,32 +1,75 @@
 angular.module('omun.controllers', [])
 
-.controller('HomeCtrl', function($scope, Committees, News) {
-  var omunCountdown = function(endtime){
-    var t = Date.parse(endtime) - Date.parse(new Date());
-    //var seconds = Math.floor( (t/1000) % 60 );
-    //var minutes = Math.floor( (t/1000/60) % 60 );
-    //var hours = Math.floor( (t/(1000*60*60)) % 24 );
-    var days = Math.floor( t/(1000*60*60*24) );
-
-    if (t >= 0){
-      return days + " days until OMUN 2017";
+.controller('HomeCtrl', function($scope, Committees, News, $timeout, $ionicLoading) {
+  //var init = $localStorage.get('init');
+  if(window.Connection) {
+    if(navigator.connection.type == Connection.NONE) {
+      //if (init.setup === undefined) {
+        //console.log("Uh oh!");
+        $ionicPopup.confirm({
+          title: "Internet Disconnected",
+          content: "The internet is disconnected on your device."
+        });
+      //}
     }
-    else if (t < 0){
-      return "OMUN 2017 has officially started!";
+    /*
+    else{
+      if (init.setup === undefined) {
+        $localStorage.set('init',{'setup':'done'});
+      }
+      $http.get("http://matthewwang.me/omun/api/committees.json")
+        .success(function(data) {
+            $localStorage.set('committees',data);
+        })
+        .error(function() {
+            console.log("Uh oh!");
+        });
+      $http.get("http://matthewwang.me/omun/api/posts.json")
+        .success(function(data) {
+            $localStorage.set('articles',data);
+        })
+        .error(function() {
+            console.log("Uh oh!");
+        });
     }
-    else {
-      return "Oops! Something's not working!";
-    }
+    */
   }
-  $scope.countdown = omunCountdown("4/22/2017");
-  var committee = Committees.random();
-  committee.then(function(result) {
-     $scope.committee = result;
+  $ionicLoading.show({
+    content: 'Loading',
+    animation: 'fade-in',
+    showBackdrop: true,
+    maxWidth: 200,
+    showDelay: 0
   });
-  var news = News.latest();
-  news.then(function(result) {
-     $scope.news = result;
-  });
+  $timeout(function () {
+    var omunCountdown = function(endtime){
+      var t = Date.parse(endtime) - Date.parse(new Date());
+      //var seconds = Math.floor( (t/1000) % 60 );
+      //var minutes = Math.floor( (t/1000/60) % 60 );
+      //var hours = Math.floor( (t/(1000*60*60)) % 24 );
+      var days = Math.floor( t/(1000*60*60*24) );
+
+      if (t >= 0){
+        return days + " days until OMUN 2017";
+      }
+      else if (t < 0){
+        return "OMUN 2017 has officially started!";
+      }
+      else {
+        return "Oops! Something's not working!";
+      }
+    }
+    $scope.countdown = omunCountdown("4/22/2017");
+    var committee = Committees.random();
+    committee.then(function(result) {
+       $scope.committee = result;
+    });
+    var news = News.latest();
+    news.then(function(result) {
+       $scope.news = result;
+    });
+    $ionicLoading.hide();
+  }, 2000);
 })
 
 .controller('NewsCtrl', function($scope, $http, News) {
