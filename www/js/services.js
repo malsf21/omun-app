@@ -1,7 +1,7 @@
 angular.module('omun.services', [])
 
 .factory('News', ['$http',function($http) {
-  var omunURL = "http://matthewwang.me/omun/";
+  var omunURL = "http://omun.ca/";
   var getData = function() {
     return $http({method:"GET", url:omunURL + 'api/posts.json'}).then(function(result){
       return result.data;
@@ -34,7 +34,7 @@ angular.module('omun.services', [])
 }])
 
 .factory('Committees', ['$http',function($http) {
-  var omunURL = "http://matthewwang.me/omun/";
+  var omunURL = "http://omun.ca/";
   var getData = function() {
     return $http({method:"GET", url:omunURL + 'api/committees.json'}).then(function(result){
       return result.data;

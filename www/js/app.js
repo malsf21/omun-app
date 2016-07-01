@@ -1,4 +1,4 @@
-angular.module('omun', ['ionic', 'omun.controllers', 'omun.services'])
+angular.module('omun', ['ionic', 'omun.controllers', 'omun.services', 'ngSanitize'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -115,4 +115,10 @@ angular.module('omun', ['ionic', 'omun.controllers', 'omun.services'])
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/home');
 
-});
+})
+.filter('to_trusted', ['$sce', function($sce){
+  return function(text){
+      var decoded = angular.element('<textarea />').html(text).text()
+      return $sce.trustAsHtml(decoded);
+  };
+}]);

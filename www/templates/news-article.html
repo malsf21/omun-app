@@ -5,10 +5,10 @@
         <h2>{{article.title}}</h2>
       </div>
       <div class="item item-text-wrap">
-        {{article.excerpt}}
+        <div ng-bind-html="article.content | to_trusted"></div>
       </div>
       <div class="item item-divider">
-        by {{article.author}} on {{article.date}} 
+        by {{article.author}} on {{article.date}}
       </div>
     </div>
   </ion-content>
