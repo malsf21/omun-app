@@ -8,8 +8,8 @@ If you see any issues, please let me know on my Issue Tracker!
 
 * Give you short blurbs about the conference
 * Gives you a temporary schedule and conference timeline (all filler content)
-* Gives you committee short bios (all filler content)
-* Gives you news updates (only excerpts, not entire posts)
+* Gives you committee information, including description
+* Gives you full-text news updates
 * Pull information from the OMUN Web API (such as news and committees)
 * Actual countdown until OMUN 2017
 * Tells you who made the app and how
@@ -19,7 +19,6 @@ If you see any issues, please let me know on my Issue Tracker!
 
 * Have caching of latest pull of information from OMUN API for offline use
 * Network connection offline indicator
-* Actual content of posts
 * More descriptive content in general
 * Have Documentation on testing, coding, building, deploying, and maintaining
 * Have better coding practices
