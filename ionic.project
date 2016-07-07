@@ -1,4 +1,11 @@
 {
   "name": "OMUN App",
-  "app_id": "1ecb8f95"
+  "app_id": "1ecb8f95",
+  "browsers": [
+    {
+      "platform": "android",
+      "browser": "crosswalk",
+      "version": "12.41.296.5"
+    }
+  ]
 }
