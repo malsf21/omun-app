@@ -1,17 +1,10 @@
 angular.module('omun.controllers', [])
 
-.controller('HomeCtrl', function($scope, Committees, News, $timeout, $ionicLoading) {
+.controller('HomeCtrl', function($scope, Committees, News, $timeout, $ionicLoading, $ionicPopup) {
   //var init = $localStorage.get('init');
-  if(window.Connection) {
-    if(navigator.connection.type == Connection.NONE) {
       //if (init.setup === undefined) {
         //console.log("Uh oh!");
-        $ionicPopup.confirm({
-          title: "Internet Disconnected",
-          content: "The internet is disconnected on your device."
-        });
       //}
-    }
     /*
     else{
       if (init.setup === undefined) {
@@ -33,7 +26,6 @@ angular.module('omun.controllers', [])
         });
     }
     */
-  }
   $ionicLoading.show({
     content: 'Loading',
     animation: 'fade-in',

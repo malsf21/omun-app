@@ -1,6 +1,6 @@
 angular.module('omun', ['ionic', 'omun.controllers', 'omun.services', 'ngSanitize'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, $ionicPopup) {
   $ionicPlatform.ready(function() {
     if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
@@ -9,6 +9,22 @@ angular.module('omun', ['ionic', 'omun.controllers', 'omun.services', 'ngSanitiz
     }
     if (window.StatusBar) {
       StatusBar.styleDefault();
+    }
+    if(window.Connection) {
+      if(navigator.connection.type == Connection.NONE) {
+        $ionicPopup.confirm({
+          title: 'No Internet Connection',
+          content: 'Some content won\'t be available! Go online to access the full content.',
+          buttons: [
+            { text: 'Continue' }
+          ]
+        })
+        .then(function(result) {
+          if(!result) {
+            ionic.Platform.exitApp();
+          }
+        });
+      }
     }
   });
 })
