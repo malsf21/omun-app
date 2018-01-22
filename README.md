@@ -1,4 +1,6 @@
-# OMUN App
+# ~OMUN App~
+
+**Notice:** unfortunately, this project got sandboxed due to administrative issues. I won't be continuing any work on it, but it's cool to see just how bad my code used to be. 
 
 Heya there! I'm Matt, the USG of Communications for OMUN 2017. This is the OMUN App (Ionic Version). Right now, I'm working on pulling and parsing information from the omun.ca API. I'll update the documentation of the app as I go, especially after I finish exams and have a lot of free time.
 
